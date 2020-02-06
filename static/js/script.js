@@ -36,7 +36,6 @@ let CONFIG = {
     {
       category: 'Email',
       name: 'Drive',
-      key: 'd',
       url: 'https://drive.google.com',
       search: '/drive/search?q={}',
       color: 'linear-gradient(135deg, #FFD04B, #1EA362, #4688F3)',
@@ -74,7 +73,6 @@ let CONFIG = {
 	{
       category: 'FCT-UNL',
       name: 'MIEI Drive',
-      key: 'd',
       url: 'http://mieidrive.azurewebsites.net/',
       color: 'linear-gradient(135deg, #FFD04B, #1EA362, #4688F3)',
       icon: 'drive',
@@ -90,7 +88,16 @@ let CONFIG = {
       icon: 'github',
       quickLaunch: false,
     },
-	{
+    {
+      category: 'Dev',
+      name: 'Devhints',
+      key: 'd',
+      url: 'https://devhints.io',
+      color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
+      icon: 'default',
+      quickLaunch: false,
+    },
+    {
       category: 'Dev',
       name: 'Codefactor',
       key: 'codef',
