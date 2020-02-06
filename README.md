@@ -3,9 +3,17 @@ Custom webpage with bookmarks
 Source: [tilde-enhanced](https://github.com/Ozencb/tilde-enhanced)
 
 ## Usage
-If you already have a webserver, copy the contents of the /static
-folder to the folder that you serve.
 
+### I am already running a server
+If you already have a webserver, copy or link the contents of the /static
+folder to the folder that you serve. For example,
+ * ln -s <root-project-folder>/static /var/www/homepage
+After that if you are running ngninx you can use the /nginx/home.conf file
+as a starting point to create a site. 
+Modify the server-name (for example to a subdomain - home.my_sever_name)
+and the root to point to the right folder. 
+
+### I am not running a server
 If you dont have a webserver and you are running a system with
 systemd, you can use the `homepage.service` file to create a service
 that uses the nodejs' `http-server` module to serve the files on localhost:8080.
