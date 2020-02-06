@@ -213,7 +213,7 @@ let CONFIG = {
   /**
    * Open triggered queries in a new tab.
    */
-  newTab: false,
+  newTab: true,
 
   /**
    * Dynamic overlay background colors when command domains are matched.
