@@ -1,0 +1,13 @@
+[Unit]
+Description=Custom browser homepage
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart= /usr/bin/http-server /home/david/Documents/HomePage/static --no-dotfiles
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+
