@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+
 :root {
   /* colors */
 
@@ -296,3 +299,54 @@ body.form .search-form {
     grid-template-columns: repeat(5, 220px) 175px;
   }
 }
+
+.widget {
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  display: flex;
+  height: 120px;
+  width: 300px;
+  transform: translate(-50%, -50%);
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+}
+
+.temperature{
+  order: 1;
+  font-size: 25px;
+  font-weight: 200;
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  align-self: center;
+
+}
+
+.weatherIcon{
+order: 2;
+margin: 0 15px;
+color: #FAFAFA;    
+font-family: weathericons;
+display: flex;
+align-self: center;
+justify-content: space-around;
+font-size: 40px;
+align-self: center;
+
+}
+
+.date{
+order: 3;
+justify-content: space-around;
+color: white;
+font-size: 20px;
+font-weight: 200;
+align-self: center;
+}
+
+
+
