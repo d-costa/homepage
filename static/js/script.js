@@ -86,6 +86,15 @@ let CONFIG = {
       icon: 'github',
       quickLaunch: false,
     },
+	{
+      category: 'Dev',
+      name: 'Trello',
+      key: 't',
+      url: 'https://trello.com/login',
+      color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
+      icon: 'trello',
+      quickLaunch: false,
+    },
     {
       category: 'Dev',
       name: 'Devhints',
