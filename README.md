@@ -1,7 +1,10 @@
 # HomePage
 Custom webpage with bookmarks
 Source: [tilde-enhanced](https://github.com/Ozencb/tilde-enhanced)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/22ef7c87-8997-42dc-83fe-a2f726e66156/deploy-status)](https://app.netlify.com/sites/launchpage/deploys)## Usage
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/22ef7c87-8997-42dc-83fe-a2f726e66156/deploy-status)](https://app.netlify.com/sites/launchpage/deploys)
+
+## Usage
 
 ### I am already running a server
 If you already have a webserver, copy or link the contents of the /static
