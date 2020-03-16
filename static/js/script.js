@@ -141,12 +141,12 @@ let CONFIG = {
       icon: 'pihole',
       quickLaunch: false,
     },
-	{
+		{
       category: 'Home',
-      name: 'Owncloud',
-      url: 'https://owncloud.pi.hole/',
+      name: 'Plex',
+      url: 'http://localhost:32400',
       color: 'linear-gradient(135deg, #53341C, #F48024)',
-      icon: 'owncloud',
+      icon: 'plex',
       quickLaunch: false,
     },
 	{
@@ -162,7 +162,7 @@ let CONFIG = {
       name: 'Bazarr',
       url: 'http://localhost:6767',
       color: 'linear-gradient(135deg, #53341C, #F48024)',
-      icon: 'default',
+      icon: 'bazarr',
       quickLaunch: false,
     },
 
