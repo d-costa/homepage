@@ -157,6 +157,14 @@ let CONFIG = {
       icon: 'sonarr',
       quickLaunch: false,
     },
+		{
+      category: 'Home',
+      name: 'Radarr',
+      url: 'http://localhost:7878',
+      color: 'linear-gradient(135deg, #53341C, #F48024)',
+      icon: 'sonarr',
+      quickLaunch: false,
+    },
 	{
       category: 'Home',
       name: 'Bazarr',
