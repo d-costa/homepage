@@ -117,7 +117,7 @@ let CONFIG = {
       key: 'bitbucket',
       url: 'https://bitbucket.org',
       color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
-      icon: 'github',
+      icon: 'bitbucket',
       quickLaunch: false,
     },
 	{
