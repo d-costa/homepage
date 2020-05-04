@@ -124,7 +124,7 @@ let CONFIG = {
       category: 'Dev',
       name: 'Digital Ocean',
       key: 'dig',
-      url: 'https://app.codacy.com/projects',
+      url: 'https://cloud.digitalocean.com/login',
       color: 'linear-gradient(135deg, #53341C, #F48024)',
       icon: 'digital_ocean',
       quickLaunch: false,
