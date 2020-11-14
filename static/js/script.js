@@ -115,7 +115,7 @@ let CONFIG = {
       category: 'VCS',
       name: 'Bitbucket',
       key: 'bitbucket',
-      url: 'https://bitbucket.org',
+      url: 'https://bitbucket.org/login',
       color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
       icon: 'bitbucket',
       quickLaunch: false,
