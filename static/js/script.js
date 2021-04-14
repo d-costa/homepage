@@ -54,7 +54,7 @@ let CONFIG = {
       category: 'Email',
       name: 'Trello',
       key: 't',
-      url: 'https://trello.com/login',
+      url: 'https://trello.com',
       color: 'linear-gradient(135deg, #2b2b2b, #3b3b3b)',
       icon: 'trello',
       quickLaunch: false,
