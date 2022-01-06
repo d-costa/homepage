@@ -173,7 +173,7 @@ body.suggestions .search-suggestions {
   display: block;
   padding: 8vw;
   background: var(--background);
-  z-index: 1;
+  z-index: 2;
 }
 
 .category {
@@ -346,11 +346,13 @@ align-self: center;
 }
 
 canvas{
-  z-index : -1;
+  z-index : 10;
   left: 0;
   top: 0;
-  background: var(--background);
+  /*background: var(--background);*/
   position: fixed;
+  /*opacity: 0.5;*/
+  pointer-events: none;
 }
 
 

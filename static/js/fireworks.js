@@ -7,7 +7,7 @@ class JustLooksLikeCircularBuffer {
     }
 
     add() {
-        if(this.tail === null) {
+        if (this.tail === null) {
             this.tail = 0;
             this.head = 0;
         } else {
@@ -16,12 +16,12 @@ class JustLooksLikeCircularBuffer {
                 this.head = (this.head + 1) % this.maxSize;
         }
 
-        if(this.size < this.maxSize)
+        if (this.size < this.maxSize)
             this.size++;
     }
 
     addArr(objArr) {
-        objArr.forEach( _ => this.add() );
+        objArr.forEach(_ => this.add());
     }
 }
 
@@ -102,15 +102,24 @@ window.onload = function init() {
 
     // Configure canvas
     canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
 
-       window.addEventListener("keydown", function (event) {
+    let resizeTimeout;
+    function resizeCanvas() {
+        clearTimeout(resizeTimeout);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        resizeTimeout = setTimeout(resizeCanvas, 500);
+    }
+
+    window.addEventListener("keydown", function (event) {
         if (event.code === "Space") {
             autoMode = !autoMode;
             auto();
         }
     });
+
+    window.addEventListener('resize', resizeCanvas, false);
 
     gl = WebGLUtils.setupWebGL(canvas);
     if (!gl) {
@@ -118,7 +127,7 @@ window.onload = function init() {
     }
 
     // Configure WebGL
-    gl.viewport(0, 0, canvas.width, canvas.height);
+    resizeCanvas();
     // gl.clearColor(0.055, 0.055, 0.055, 1.0);
     gl.blendFuncSeparate(gl.SRC_ALPHA, gl.DST_ALPHA, gl.ONE, gl.ONE);
     gl.enable(gl.BLEND);
@@ -365,7 +374,7 @@ function createTrail(firstPos, firstVel, firstTime, firstElapsedTime) {
         for (let j = 0; j < TRAIL_PRECISION; j++) {
             let data = [
                 trailPos[0], trailPos[1],
-                randomCentered(trailVel[0], TRAIL_X_DELTA) , trailVel[1],
+                randomCentered(trailVel[0], TRAIL_X_DELTA), trailVel[1],
                 trailTime,
                 TRAIL_SIZE
             ];
@@ -392,12 +401,12 @@ function auto() {
 
 function position(initPos, initVel, time) {
     return vec2(initPos[0] + initVel[0] * time,
-                initPos[1] + initVel[1] * time + 0.5 * GRAVITY * time * time);
+        initPos[1] + initVel[1] * time + 0.5 * GRAVITY * time * time);
 }
 
 function velocity(initVel, time) {
     return vec2(initVel[0],
-                initVel[1] + GRAVITY * time);
+        initVel[1] + GRAVITY * time);
 }
 
 function random(min, max) {
@@ -409,9 +418,9 @@ function randomCentered(center, delta) {
 }
 
 function randomVelocity() {
-    let theta = random(0, 2*Math.PI);
+    let theta = random(0, 2 * Math.PI);
     const factor = randomNormal(0.05, 0.2);
-    return vec2(Math.cos(theta) * factor, Math.sin(theta) * factor * canvas.width/canvas.height);
+    return vec2(Math.cos(theta) * factor, Math.sin(theta) * factor * canvas.width / canvas.height);
 }
 
 function randomNormal(min, max) {
