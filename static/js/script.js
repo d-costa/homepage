@@ -259,7 +259,7 @@ let CONFIG = {
   /**
    * Get suggestions as you type.
    */
-  suggestions: true,
+  suggestions: false,
   suggestionsLimit: 4,
 
   /**
@@ -965,7 +965,7 @@ class Form {
 
   hide() {
     $.bodyClassRemove('form');
-    this._inputEl.value = '';
+    // this._inputEl.value = '';
     this._inputElVal = '';
     this._suggester.suggest('');
     this._setBackgroundFromQuery('');
@@ -973,7 +973,7 @@ class Form {
 
   show() {
     $.bodyClassAdd('form');
-    this._inputEl.focus();
+    // this._inputEl.focus();
   }
 
   invert() {
@@ -1057,8 +1057,8 @@ class Form {
 
   _registerEvents() {
     document.addEventListener('keydown', this._handleKeydown);
-    this._inputEl.addEventListener('input', this._handleInput);
-    this._formEl.addEventListener('submit', this._submitForm, false);
+    // this._inputEl.addEventListener('input', this._handleInput);
+    // this._formEl.addEventListener('submit', this._submitForm, false);
 
     if (this._suggester) {
       this._suggester.setOnClick(this._submitWithValue);
@@ -1069,7 +1069,7 @@ class Form {
 
   _setBackgroundFromQuery(query) {
     if (!this._colors) return;
-    this._formEl.style.background = this._parseQuery(query).color;
+    // this._formEl.style.background = this._parseQuery(query).color;
   }
 
   _submitForm(e) {

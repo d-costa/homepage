@@ -2,32 +2,189 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex" />
-  <link rel="stylesheet" type="text/css" href="css/style.css">  
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="robots" content="noindex"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-  <title>Home</title>
+    <title>Home</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+    <script id="vertex-shader-line" type="x-shader/x-vertex">
+        attribute vec4 vLinePosition;
+        void main(){
+            gl_Position = vLinePosition;
+        }
+
+    </script>
+    <script id="fragment-shader-line" type="x-shader/x-fragment">
+        precision mediump float;
+        void main() {
+            gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+        }
+
+    </script>
+    <script id="vertex-shader-ghost-point" type="x-shader/x-vertex">
+        attribute vec4 vGhostPointPosition;
+        attribute float vGhostPointSize;
+        void main(){
+            gl_Position = vGhostPointPosition;
+            gl_PointSize = vGhostPointSize;
+        }
+
+    </script>
+    <script id="fragment-shader-ghost-point" type="x-shader/x-fragment">
+        precision mediump float;
+        void main() {
+            if (distance(gl_PointCoord, vec2(0.5)) > 0.5)
+                discard;
+            gl_FragColor = vec4(0.0, 1.0, 0.0, 0.3);
+        }
+
+    </script>
+    <script id="vertex-shader-point" type="x-shader/x-vertex">
+        // First trajectory
+        attribute vec4 vFirstPos;
+        attribute vec2 vFirstVel;
+        attribute float vFirstTime;
+
+        // Second trajectory
+        attribute vec4 vSecondPos;
+        attribute vec2 vSecondVel;
+        attribute float vSecondTime;
+
+        // Third trajectory
+        attribute vec4 vThirdPos;
+        attribute vec2 vThirdVel;
+        attribute float vThirdTime;
+
+        // Aux
+        attribute float vSize;
+        attribute vec4 vColor;
+
+        varying vec4 fColor;
+
+        uniform float uTime;
+        uniform float uGravity;
+
+        vec2 position(vec4 initialPos, vec2 initialVel, float time) {
+            return vec2(initialPos.x + initialVel.x * time,
+                initialPos.y + initialVel.y * time + 0.5 * uGravity * time * time);
+        }
+
+        void main(){
+            gl_Position = vFirstPos;
+            fColor = vColor;
+
+            float elapsedTime;
+            if (vThirdTime <= uTime) {
+                // Third trajectory
+                elapsedTime = uTime - vThirdTime;
+                gl_Position.xy = position(vThirdPos, vThirdVel, elapsedTime);
+                gl_PointSize = vSize / 3.0;
+                fColor.a = 1.0 + elapsedTime * (-1.0/0.8); // nr mais a direita e o tempo ate "desaparecer"
+
+            } else if ( vSecondTime <= uTime) {
+                // Second trajectory
+                elapsedTime = uTime - vSecondTime;
+                gl_Position.xy = position(vSecondPos, vSecondVel, elapsedTime);
+                gl_PointSize = vSize / 2.0;
+
+            } else {
+                // First trajectory
+                elapsedTime = uTime - vFirstTime;
+                gl_Position.xy = position(vFirstPos, vFirstVel, elapsedTime);
+                gl_PointSize = vSize;
+
+            }
+
+        }
+
+    </script>
+    <script id="fragment-shader-point" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec4 fColor;
+        void main() {
+            if (distance(gl_PointCoord, vec2(0.5)) > 0.5)
+                discard;
+            gl_FragColor = fColor;
+        }
+
+    </script>
+    <script id="vertex-shader-trail" type="x-shader/x-vertex">
+        attribute vec4 vTrailPos;
+        attribute vec2 vTrailVel;
+        attribute float vTrailTime;
+        attribute float vTrailSize;
+
+        varying vec4 fColor;
+
+        uniform float uTime;
+        uniform float uGravity;
+
+        vec2 position(vec4 initialPos, vec2 initialVel, float time) {
+            return vec2(initialPos.x + initialVel.x * time,
+                initialPos.y + initialVel.y * time + 0.5 * uGravity * time * time);
+        }
+
+        void main(){
+            gl_Position = vTrailPos;
+            fColor = vec4(1.0, 0.0, 0.0, 1.0);
+
+            float elapsedTime = uTime - vTrailTime;
+            gl_Position.xy = position(vTrailPos, vTrailVel, elapsedTime);
+            gl_PointSize = vTrailSize;
+
+            fColor.a = 1.0 + elapsedTime * (-1.0/(0.2));
+            if ( elapsedTime < 0.0 )
+                fColor.a = 0.0;
+        }
+
+    </script>
+    <script id="fragment-shader-trail" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec4 fColor;
+        void main() {
+            gl_FragColor = fColor;
+        }
+
+    </script>
+    <script type="text/javascript" src="js/Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="js/Common/initShaders.js"></script>
+    <script type="text/javascript" src="js/Common/MV.js"></script>
+    <script type="text/javascript" src="js/fireworks.js"></script>
 </head>
 
 <body>
-  <div class="center"><time class="clock" id="clock"></time></div>
-  <form autocomplete="off" class="center overlay search-form" id="search-form" spellcheck="false">
-    <div>
-      <input class="search-input" id="search-input" title="search" type="text" />
-      <ul class="search-suggestions" id="search-suggestions"></ul>
-    </div>
-  </form>
-  <aside class="center help overlay" id="help"></aside>
-  <script type="text/javascript" src="js/script.js"></script>
+<canvas id="canvas">
+    Oops... your browser doesn't support the HTML5 canvas element!"
+</canvas>
 
-  <article class="widget">
-	  <div class="weatherIcon"><i id="weatherIcon" class="wi "></i></div>
-	  <div class="temperature"><span id="temperature"></span></div>
-	  <div id='date' class="date"></div>
+<div class="center">
+    <time class="clock" id="clock"></time>
+</div>
+<!--<form autocomplete="off" class="center overlay search-form" id="search-form" spellcheck="false">-->
+<!--    <div>-->
+<!--        <input class="search-input" id="search-input" title="search" type="text"/>-->
+<!--        <ul class="search-suggestions" id="search-suggestions"></ul>-->
+<!--    </div>-->
+<!--</form>-->
+<aside class="center help overlay" id="help"></aside>
+<script type="text/javascript" src="js/script.js"></script>
+
+<article class="widget">
+    <div class="weatherIcon"><i id="weatherIcon" class="wi "></i></div>
+    <div class="temperature"><span id="temperature"></span></div>
+    <div id='date' class="date"></div>
 </article>
 
- <script type="text/javascript" src="js/weather-widget.js"></script>
+<script type="text/javascript" src="js/weather-widget.js"></script>
 </body>
 
 </html>

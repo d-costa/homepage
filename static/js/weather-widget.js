@@ -48,7 +48,6 @@ request.onload = function(){
 	var obj = JSON.parse(this.response);
 	if (request.status >= 200 && request.status < 400) {
 		var temp = Math.round(obj.main.temp);
-		console.log(obj);
 		var iconID = obj.weather[0].icon;
 		var description = obj.weather[0].description;
 		document.getElementById('temperature').innerText = temp + '\u00B0';

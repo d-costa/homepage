@@ -334,8 +334,6 @@ display: flex;
 align-self: center;
 justify-content: space-around;
 font-size: 40px;
-align-self: center;
-
 }
 
 .date{
@@ -347,5 +345,12 @@ font-weight: 200;
 align-self: center;
 }
 
+canvas{
+  z-index : -1;
+  left: 0;
+  top: 0;
+  background: var(--background);
+  position: fixed;
+}
 
 
