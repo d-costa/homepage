@@ -86,14 +86,6 @@ let CONFIG = {
       quickLaunch: false,
     },
 	{
-      category: 'FCT-UNL',
-      name: 'Mooshak',
-      url: 'http://mooshak.di.fct.unl.pt/~mooshak//',
-      color: 'linear-gradient(135deg, #FFD04B, #1EA362, #4688F3)',
-      icon: 'mooshak',
-      quickLaunch: false,
-    },
-	{
       category: 'VCS',
       name: 'Gitlab',
       key: 'gitlab',
@@ -148,7 +140,7 @@ let CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Code Review',
+      category: 'Dev',
       name: 'Codefactor',
       key: 'codef',
       url: 'https://www.codefactor.io/dashboard',
@@ -157,7 +149,7 @@ let CONFIG = {
       quickLaunch: false,
     },
 	{
-      category: 'Code Review',
+      category: 'Dev',
       name: 'Codacy',
       key: 'coda',
       url: 'https://app.codacy.com/projects',
@@ -165,50 +157,8 @@ let CONFIG = {
       icon: 'codacy',
       quickLaunch: false,
     },
-	// {
-    //   category: 'Home',
-    //   name: 'Pi-hole',
-    //   key: 'p',
-    //   url: 'http://pihole.pi.hole/',
-    //   color: 'linear-gradient(135deg, #53341C, #F48024)',
-    //   icon: 'pihole',
-    //   quickLaunch: false,
-    // },
-	// 	{
-    //   category: 'Home',
-    //   name: 'Plex',
-    //   url: 'http://localhost:32400',
-    //   color: 'linear-gradient(135deg, #53341C, #F48024)',
-    //   icon: 'plex',
-    //   quickLaunch: false,
-    // },
-	// {
-    //   category: 'Home',
-    //   name: 'Sonarr',
-    //   url: 'http://localhost:8989',
-    //   color: 'linear-gradient(135deg, #53341C, #F48024)',
-    //   icon: 'sonarr',
-    //   quickLaunch: false,
-    // },
-	// 	{
-    //   category: 'Home',
-    //   name: 'Radarr',
-    //   url: 'http://localhost:7878',
-    //   color: 'linear-gradient(135deg, #53341C, #F48024)',
-    //   icon: 'sonarr',
-    //   quickLaunch: false,
-    // },
-	// {
-    //   category: 'Home',
-    //   name: 'Bazarr',
-    //   url: 'http://localhost:6767',
-    //   color: 'linear-gradient(135deg, #53341C, #F48024)',
-    //   icon: 'bazarr',
-    //   quickLaunch: false,
-    // },
-
     {
-      category: 'Fun',
+      category: 'Social',
       name: 'YouTube',
       key: 'y',
       url: 'https://youtube.com',
@@ -218,16 +168,7 @@ let CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Fun',
-      name: 'Netflix',
-      key: 'n',
-      url: 'https://www.netflix.com',
-      color: 'linear-gradient(135deg, #E50914, #CB020C)',
-      icon: 'netflix',
-      quickLaunch: false,
-    },
-    {
-      category: 'Fun',
+      category: 'Social',
       name: 'Twitch',
       key: 'tw',
       url: 'https://www.twitch.tv',
@@ -237,7 +178,7 @@ let CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Fun',
+      category: 'Social',
       name: 'Reddit',
       key: 'r',
       url: 'https://reddit.com',
@@ -247,7 +188,25 @@ let CONFIG = {
       quickLaunch: false,
     },
     {
-      category: 'Fun',
+      category: 'Social',
+      name: 'Twitter',
+      key: 'tt',
+      url: 'https://twitter.com/home',
+      color: 'linear-gradient(135deg, #1DA1F2, #657786)',
+      icon: 'twitter',
+      quickLaunch: false,
+    },
+    {
+      category: 'Other',
+      name: 'Netflix',
+      key: 'n',
+      url: 'https://www.netflix.com',
+      color: 'linear-gradient(135deg, #E50914, #CB020C)',
+      icon: 'netflix',
+      quickLaunch: false,
+    },
+    {
+      category: 'Other',
       name: 'Nightwave',
       url: 'https://plaza.one/',
       color: 'linear-gradient(135deg, #7A5F00, #E8B708)',
@@ -281,7 +240,6 @@ let CONFIG = {
    */
   defaultSuggestions: {
     g: ['g/issues', 'g/pulls', 'gist.github.com'],
-    r: ['r/r/unixporn', 'r/r/startpages', 'r/r/webdev', 'r/r/technology'],
   },
 
   /**
@@ -334,12 +292,12 @@ let CONFIG = {
 };
 
 // Get invertedColors preference from cookies
-CONFIG.invertedColors = localStorage.getItem('invertColorCookie') 
+CONFIG.invertedColors = localStorage.getItem('invertColorCookie')
                       ? JSON.parse(localStorage.getItem('invertColorCookie'))
                       : CONFIG.invertedColors;
 
 // Get showKeys preference from cookies
-CONFIG.showKeys = localStorage.getItem('showKeysCookie') 
+CONFIG.showKeys = localStorage.getItem('showKeysCookie')
                 ? JSON.parse(localStorage.getItem('showKeysCookie'))
                 : CONFIG.showKeys;
 
@@ -500,10 +458,10 @@ class Help {
   _buildListCommands(currentCategory) {
     let invertValue = this._invertColors ? 1: 0;
 
-    const bgcolor = invertValue ? getComputedStyle(document.documentElement).getPropertyValue('--foreground') 
+    const bgcolor = invertValue ? getComputedStyle(document.documentElement).getPropertyValue('--foreground')
                                 : getComputedStyle(document.documentElement).getPropertyValue('--background');
 
-    const fgcolor = invertValue ? getComputedStyle(document.documentElement).getPropertyValue('--background') 
+    const fgcolor = invertValue ? getComputedStyle(document.documentElement).getPropertyValue('--background')
                                 : getComputedStyle(document.documentElement).getPropertyValue('--foreground');
 
     const commandListWithIcons =  this._commands
@@ -529,11 +487,11 @@ class Help {
               <a href="${url}" target="${this._newTab ? '_blank' : '_self'}">
                     <style>
                       .command-key-${i} {
-                        color: ${fgcolor}; 
+                        color: ${fgcolor};
                         background-color:${bgcolor};
-                        border: 4px solid ${fgcolor}; 
+                        border: 4px solid ${fgcolor};
                         background-color: ${bgcolor};
-                      }   
+                      }
                     </style>
                 <span class="command-key command-key-${i}" style="">${key}</span>
                 <span class="command-name command-name-${i}">${name}</span>
@@ -981,7 +939,7 @@ class Form {
       const bgcolor = getComputedStyle(document.documentElement).getPropertyValue('--background');
       const fgcolor = getComputedStyle(document.documentElement).getPropertyValue('--foreground');
       document.documentElement.style.setProperty('--background', fgcolor);
-      document.documentElement.style.setProperty('--foreground', bgcolor);    
+      document.documentElement.style.setProperty('--foreground', bgcolor);
     }
   }
 
