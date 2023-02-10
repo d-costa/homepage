@@ -1,11 +1,7 @@
 # HomePage
 Custom webpage with bookmarks.
 
-Test it: https://launchpage.netlify.app/
-
 Source: [tilde-enhanced](https://github.com/Ozencb/tilde-enhanced)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/562d43c6-a7b6-4c5d-adfb-b0dbc46d0dea/deploy-status)](https://app.netlify.com/sites/launchpage/deploys)
 
 ## Examples
 ![example1](./examples/homepage_1.png)
