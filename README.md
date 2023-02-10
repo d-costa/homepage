@@ -1,7 +1,6 @@
 # HomePage
 Custom webpage with bookmarks.
-
-Source: [tilde-enhanced](https://github.com/Ozencb/tilde-enhanced)
+[![Deploy](https://github.com/d-costa/homepage/actions/workflows/static.yml/badge.svg?branch=master)](https://github.com/d-costa/homepage/actions/workflows/static.yml)
 
 ## Examples
 ![example1](./examples/homepage_1.png)
@@ -34,4 +33,8 @@ that uses the nodejs' `http-server` module to serve the files on localhost:8080.
  
 Refer to [tilde-enhanced](https://github.com/Ozencb/tilde-enhanced) for instructions
 on how to edit the page.
+
+## Acknowledgements
+
+https://github.com/Ozencb/tilde-enhanced
 
