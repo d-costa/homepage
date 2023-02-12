@@ -143,16 +143,8 @@ let CONFIG = {
     },
     {
       category: 'Destiny 2',
-      name: 'Braytech',
-      url: 'https://bray.tech/',
-      color: 'linear-gradient(135deg, #7A5F00, #E8B708)',
-      icon: 'default',
-      quickLaunch: false,
-    },
-    {
-      category: 'Destiny 2',
       name: 'Optimizer',
-      url: 'https://www.destinyoptimizer.com/',
+      url: 'https://destinyrecipes.com/',
       color: 'linear-gradient(135deg, #7A5F00, #E8B708)',
       icon: 'default',
       quickLaunch: false,
