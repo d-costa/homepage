@@ -136,7 +136,7 @@ let CONFIG = {
     {
       category: 'Destiny 2',
       name: 'DIM',
-      url: 'https://app.destinyitemmanager.com',
+      url: 'https://beta.destinyitemmanager.com',
       color: 'linear-gradient(135deg, #7A5F00, #E8B708)',
       icon: 'default',
       quickLaunch: false,
