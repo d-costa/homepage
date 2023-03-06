@@ -168,7 +168,7 @@ let CONFIG = {
     {
       category: 'Destiny 2',
       name: 'Armor Picker',
-      url: 'https://d2armorpicker.com/',
+      url: 'https://beta.d2armorpicker.com/',
       color: 'linear-gradient(135deg, #7A5F00, #E8B708)',
       icon: 'default',
       quickLaunch: false,
