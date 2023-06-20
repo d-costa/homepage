@@ -118,6 +118,15 @@ let CONFIG = {
       quickLaunch: false,
     },
     {
+      category: 'Social',
+      name: 'Kick',
+      key: 'k',
+      url: 'https://kick.com/',
+      color: 'linear-gradient(135deg, #1DA1F2, #657786)',
+      icon: 'default',
+      quickLaunch: false,
+    },
+    {
       category: 'Services',
       name: 'Nightwave',
       url: 'https://plaza.one/',
