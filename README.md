@@ -3,10 +3,6 @@ Custom webpage with bookmarks.
 
 [![Deploy](https://github.com/d-costa/homepage/actions/workflows/static.yml/badge.svg?branch=master)](https://github.com/d-costa/homepage/actions/workflows/static.yml)
 
-## Examples
-![example1](./examples/homepage_1.png)
-![example2](examples/homepage_2.png)
-
 ## Usage
 
 ### I am already running a server
