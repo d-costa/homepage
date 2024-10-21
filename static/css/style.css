@@ -5,7 +5,7 @@
   /* colors */
 
   --background: #000000;
-  --foreground: #F1F1F1;
+  --foreground: #FFFFFF;
 
   /* fonts */
   --font-family: Verdana, Geneva, sans-serif;
@@ -354,5 +354,3 @@ canvas{
   /*opacity: 0.5;*/
   pointer-events: none;
 }
-
-
